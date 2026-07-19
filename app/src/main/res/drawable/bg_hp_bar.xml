@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/hp_bar_bg" />
+            <corners android:radius="8dp" />
+            <stroke
+                android:width="2dp"
+                android:color="@color/primary_container" />
+        </shape>
+    </item>
+    <!-- Fill will be set programmatically via ProgressBar -->
+</layer-list>
