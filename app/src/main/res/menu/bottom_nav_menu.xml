@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/combatFragment"
+        android:icon="@android:drawable/ic_menu_manage"
+        android:title="Combate"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/deckFragment"
+        android:icon="@android:drawable/ic_menu_agenda"
+        android:title="Mazo"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/mapFragment"
+        android:icon="@android:drawable/ic_menu_mapmode"
+        android:title="Mapa"
+        app:showAsAction="ifRoom" />
+
+</menu>
