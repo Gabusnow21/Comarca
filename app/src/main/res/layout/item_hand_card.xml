@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.gabus.dev.comarca.ui.components.CardViewCustom xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_custom"
+    android:layout_width="@dimen/hand_card_width"
+    android:layout_height="@dimen/hand_card_height"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardManaCost="1"
+    app:cardAttack="3"
+    app:cardDefense="2"
+    app:cardName="Strike"
+    app:cardFactionId="1"
+    tools:layout_marginBottom="8dp" />
