@@ -1,21 +1,269 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/surface"
-    android:orientation="vertical"
+    android:clipChildren="false"
+    android:clipToPadding="false"
     tools:context=".ui.combat.CombatFragment">
 
-    <!-- Placeholder: Combat board will be built in Phase 3 -->
+    <!-- Action Message -->
     <TextView
+        android:id="@+id/tv_action_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="128dp"
-        android:fontFamily="@font/domine_bold"
-        android:text="Tablero de Combate"
-        android:textColor="@color/on_surface"
-        android:textSize="@dimen/text_headline_md" />
+        android:layout_marginTop="@dimen/spacing_sm"
+        android:visibility="gone"
+        style="@style/TextAppearance.Comarca.CombatMessage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Golpeaste al enemigo por 5 de daño"
+        tools:visibility="visible" />
 
-</LinearLayout>
+    <!-- ===== TOP SECTION: Enemy Area ===== -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/enemy_area"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingTop="@dimen/spacing_xl"
+        android:paddingBottom="@dimen/spacing_md"
+        app:layout_constraintBottom_toTopOf="@id/playing_field"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_action_message"
+        app:layout_constraintVertical_weight="30">
+
+        <!-- Enemy Avatar -->
+        <ImageView
+            android:id="@+id/iv_enemy_avatar"
+            android:layout_width="@dimen/enemy_avatar_size"
+            android:layout_height="@dimen/enemy_avatar_size"
+            android:background="@drawable/bg_node_current"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@id/tv_enemy_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@android:drawable/ic_menu_crop" />
+
+        <!-- Enemy Intent -->
+        <FrameLayout
+            android:id="@+id/fl_enemy_intent"
+            android:layout_width="@dimen/enemy_intent_size"
+            android:layout_height="@dimen/enemy_intent_size"
+            android:layout_marginStart="@dimen/spacing_sm"
+            android:layout_marginTop="@dimen/spacing_xs"
+            android:background="@drawable/bg_node_boss"
+            android:padding="@dimen/spacing_xs"
+            app:layout_constraintEnd_toEndOf="@id/iv_enemy_avatar"
+            app:layout_constraintTop_toBottomOf="@id/iv_enemy_avatar">
+
+            <TextView
+                android:id="@+id/tv_enemy_intent_value"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="@color/on_error_container"
+                android:textSize="@dimen/text_label_lg"
+                android:fontFamily="@font/domine_bold"
+                tools:text="10" />
+        </FrameLayout>
+
+        <!-- Enemy Health Bar -->
+        <com.gabus.dev.comarca.ui.components.HealthBarView
+            android:id="@+id/hp_bar_enemy"
+            android:layout_width="@dimen/enemy_health_bar_width"
+            android:layout_height="@dimen/enemy_health_bar_height"
+            android:layout_marginTop="@dimen/spacing_sm"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_enemy_avatar"
+            tools:max="100"
+            tools:progress="75" />
+
+        <!-- Enemy Name -->
+        <TextView
+            android:id="@+id/tv_enemy_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xs"
+            android:fontFamily="@font/space_grotesk"
+            android:letterSpacing="0.08"
+            android:textAllCaps="true"
+            android:textColor="@color/on_surface_variant"
+            android:textSize="@dimen/text_label_lg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hp_bar_enemy"
+            tools:text="Cave Ogre" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- ===== MIDDLE SECTION: Playing Field (3 Slots) ===== -->
+    <LinearLayout
+        android:id="@+id/playing_field"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/hand_area"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/enemy_area"
+        app:layout_constraintVertical_weight="35">
+
+        <!-- Slot 1 -->
+        <FrameLayout
+            android:id="@+id/slot_1"
+            android:layout_width="@dimen/slot_width"
+            android:layout_height="@dimen/slot_height"
+            android:layout_margin="@dimen/spacing_sm"
+            android:background="@drawable/bg_slot_empty">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="+"
+                android:textColor="@color/outline_variant"
+                android:textSize="32sp"
+                android:alpha="0.5" />
+        </FrameLayout>
+
+        <!-- Slot 2 -->
+        <FrameLayout
+            android:id="@+id/slot_2"
+            android:layout_width="@dimen/slot_width"
+            android:layout_height="@dimen/slot_height"
+            android:layout_margin="@dimen/spacing_sm"
+            android:background="@drawable/bg_slot_empty">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="+"
+                android:textColor="@color/outline_variant"
+                android:textSize="32sp"
+                android:alpha="0.5" />
+        </FrameLayout>
+
+        <!-- Slot 3 -->
+        <FrameLayout
+            android:id="@+id/slot_3"
+            android:layout_width="@dimen/slot_width"
+            android:layout_height="@dimen/slot_height"
+            android:layout_margin="@dimen/spacing_sm"
+            android:background="@drawable/bg_slot_empty">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="+"
+                android:textColor="@color/outline_variant"
+                android:textSize="32sp"
+                android:alpha="0.5" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <!-- ===== BOTTOM SECTION: Hand Area ===== -->
+    <FrameLayout
+        android:id="@+id/hand_area"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/playing_field"
+        app:layout_constraintVertical_weight="40">
+
+        <!-- Mana Gems -->
+        <LinearLayout
+            android:id="@+id/mana_area"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|start"
+            android:layout_marginStart="@dimen/spacing_lg"
+            android:layout_marginBottom="@dimen/spacing_lg"
+            android:background="@color/surface_container_high"
+            android:alpha="0.8"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_sm"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tv_mana_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/space_grotesk"
+                android:letterSpacing="0.08"
+                android:textAllCaps="true"
+                android:textColor="@color/on_surface_variant"
+                android:textSize="@dimen/text_label_sm"
+                android:text="@string/combat_mana_label" />
+
+            <LinearLayout
+                android:id="@+id/mana_gems_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xs"
+                android:orientation="horizontal"
+                android:gravity="center" />
+
+            <!-- Mana text -->
+            <TextView
+                android:id="@+id/tv_mana_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xs"
+                android:fontFamily="@font/space_grotesk"
+                android:textColor="@color/mana_gem"
+                android:textSize="@dimen/text_label_lg"
+                tools:text="3/3" />
+        </LinearLayout>
+
+        <!-- End Turn Button -->
+        <Button
+            android:id="@+id/btn_end_turn"
+            style="@style/Widget.Comarca.Button.EndTurn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="@dimen/spacing_lg"
+            android:layout_marginBottom="@dimen/spacing_lg"
+            android:text="@string/combat_end_turn"
+            android:elevation="@dimen/elevation_interactive" />
+
+        <!-- Hand RecyclerView -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_hand"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:paddingStart="@dimen/spacing_lg"
+            android:paddingEnd="@dimen/spacing_lg"
+            android:paddingBottom="@dimen/spacing_xl"
+            android:overScrollMode="never" />
+    </FrameLayout>
+
+    <!-- Turn Counter -->
+    <TextView
+        android:id="@+id/tv_turn_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/spacing_lg"
+        android:fontFamily="@font/space_grotesk"
+        android:textColor="@color/on_surface_variant"
+        android:textSize="@dimen/text_label_sm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/spacing_sm"
+        tools:text="Turno 1" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
