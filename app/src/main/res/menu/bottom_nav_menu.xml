@@ -5,19 +5,19 @@
     <item
         android:id="@+id/combatFragment"
         android:icon="@android:drawable/ic_menu_manage"
-        android:title="Combate"
+        android:title="@string/nav_combate"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/deckFragment"
         android:icon="@android:drawable/ic_menu_agenda"
-        android:title="Mazo"
+        android:title="@string/nav_mazo"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/mapFragment"
         android:icon="@android:drawable/ic_menu_mapmode"
-        android:title="Mapa"
+        android:title="@string/nav_mapa"
         app:showAsAction="ifRoom" />
 
 </menu>
