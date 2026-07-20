@@ -1,21 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/surface"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
+    android:padding="@dimen/margin_mobile"
     tools:context=".ui.deck.DeckFragment">
 
-    <!-- Placeholder: Deck manager will be built in Phase 3 -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="128dp"
-        android:fontFamily="@font/domine_bold"
-        android:text="Gestor de Mazo"
-        android:textColor="@color/on_surface"
-        android:textSize="@dimen/text_headline_md" />
+    <!-- Parchment Container -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="@dimen/spacing_lg"
+        android:background="@drawable/bg_parchment"
+        android:elevation="@dimen/elevation_active"
+        android:orientation="vertical"
+        android:padding="@dimen/spacing_lg">
+
+        <!-- Bronze decorative border top -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/primary_container" />
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/tv_deck_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/spacing_md"
+            android:text="@string/deck_title"
+            style="@style/TextAppearance.Comarca.DeckTitle" />
+
+        <!-- Faction Balance Summary -->
+        <LinearLayout
+            android:id="@+id/faction_summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/spacing_sm"
+            android:background="#33ffffff"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/spacing_lg"
+            android:paddingRight="@dimen/spacing_lg"
+            android:paddingTop="@dimen/spacing_xs"
+            android:paddingBottom="@dimen/spacing_xs" />
+
+        <!-- Card List -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_card_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="@dimen/spacing_lg"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            android:paddingBottom="@dimen/spacing_lg" />
+
+        <!-- Bronze decorative border bottom -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginBottom="@dimen/spacing_md"
+            android:background="@color/primary_container" />
+
+        <!-- Edit Deck Button -->
+        <Button
+            android:id="@+id/btn_edit_deck"
+            style="@style/Widget.Comarca.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/deck_edit"
+            android:paddingLeft="@dimen/deck_edit_button_padding_h"
+            android:paddingRight="@dimen/deck_edit_button_padding_h"
+            android:paddingTop="@dimen/deck_edit_button_padding_v"
+            android:paddingBottom="@dimen/deck_edit_button_padding_v" />
+    </LinearLayout>
 
 </LinearLayout>

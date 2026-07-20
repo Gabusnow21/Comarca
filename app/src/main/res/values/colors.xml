@@ -16,6 +16,7 @@
     <color name="outline">#a18d7f</color>
     <color name="outline_variant">#534438</color>
     <color name="surface_tint">#ffb779</color>
+    <color name="surface_variant">#393522</color>
 
     <!-- Primary Bronze -->
     <color name="primary">#ffb779</color>

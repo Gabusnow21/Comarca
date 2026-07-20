@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_card_item_parchment"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:padding="@dimen/deck_item_padding"
+    android:layout_marginBottom="@dimen/spacing_sm">
+
+    <!-- Thumbnail with faction-colored border -->
+    <FrameLayout
+        android:layout_width="@dimen/deck_thumbnail_size"
+        android:layout_height="@dimen/deck_thumbnail_size"
+        android:layout_marginEnd="@dimen/spacing_md">
+
+        <View
+            android:id="@+id/faction_border"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/faction_human"
+            android:alpha="0.8" />
+
+        <ImageView
+            android:id="@+id/iv_card_thumbnail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:background="@color/surface_container_high"
+            android:scaleType="centerCrop" />
+    </FrameLayout>
+
+    <!-- Card Info -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_card_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#4a3520"
+            android:ellipsize="end"
+            android:maxLines="1"
+            style="@style/TextAppearance.Comarca.DeckCardName"
+            tools:text="Vanguardia de Roble" />
+
+        <TextView
+            android:id="@+id/tv_card_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            style="@style/TextAppearance.Comarca.DeckCardSubtitle"
+            tools:text="Human Infantry" />
+    </LinearLayout>
+
+    <!-- Stats -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_md"
+        android:orientation="vertical"
+        android:gravity="end">
+
+        <!-- Attack -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tv_card_attack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#8a1a10"
+                android:fontFamily="@font/space_grotesk"
+                android:textSize="@dimen/text_label_lg"
+                android:textStyle="bold"
+                android:drawablePadding="@dimen/spacing_xs"
+                tools:text="⚔ 4" />
+        </LinearLayout>
+
+        <!-- Defense -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tv_card_defense"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#1a3a6a"
+                android:fontFamily="@font/space_grotesk"
+                android:textSize="@dimen/text_label_lg"
+                android:textStyle="bold"
+                android:drawablePadding="@dimen/spacing_xs"
+                tools:text="🛡 3" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

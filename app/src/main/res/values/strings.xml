@@ -1,3 +1,42 @@
 <resources>
     <string name="app_name">Comarca</string>
+
+    <!-- Navigation -->
+    <string name="nav_combate">Combate</string>
+    <string name="nav_mazo">Mazo</string>
+    <string name="nav_mapa">Mapa</string>
+    <string name="nav_recompensa">Recompensa</string>
+
+    <!-- Combat -->
+    <string name="combat_end_turn">Fin de Turno</string>
+    <string name="combat_mana_label">Maná</string>
+    <string name="combat_turn_count">Turno %1$d</string>
+    <string name="combat_hp_format">%1$d / %2$d</string>
+    <string name="combat_victory">¡Victoria!</string>
+    <string name="combat_defeat">Derrota</string>
+    <string name="combat_action_message">%1$s</string>
+
+    <!-- Deck -->
+    <string name="deck_title">Mazo del Héroe</string>
+    <string name="deck_edit">Editar Mazo</string>
+    <string name="deck_card_count">%1$d cartas</string>
+    <string name="deck_faction_format">%1$d %2$s</string>
+
+    <!-- Map -->
+    <string name="map_title">Mapa de Conquista</string>
+    <string name="map_node_combate">Combate</string>
+    <string name="map_node_tesoro">Tesoro</string>
+    <string name="map_node_descanso">Descanso</string>
+    <string name="map_node_boss">Jefe</string>
+
+    <!-- Card stats -->
+    <string name="card_attack">Ataque</string>
+    <string name="card_defense">Defensa</string>
+    <string name="card_mana">Maná</string>
+
+    <!-- Faction names -->
+    <string name="faction_human">Humanos</string>
+    <string name="faction_dwarf">Enanos</string>
+    <string name="faction_ogre">Ogros</string>
+    <string name="faction_elf">Elfos</string>
 </resources>

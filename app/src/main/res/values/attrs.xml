@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- CardViewCustom attributes -->
+    <declare-styleable name="CardViewCustom">
+        <attr name="cardManaCost" format="integer" />
+        <attr name="cardAttack" format="integer" />
+        <attr name="cardDefense" format="integer" />
+        <attr name="cardName" format="string" />
+        <attr name="cardFactionId" format="integer" />
+    </declare-styleable>
+
+    <!-- HealthBarView attributes -->
+    <declare-styleable name="HealthBarView">
+        <attr name="barMax" format="integer" />
+        <attr name="barProgress" format="integer" />
+        <attr name="barFillColors" format="reference" />
+    </declare-styleable>
+
+    <!-- ManaBarView attributes -->
+    <declare-styleable name="ManaBarView">
+        <attr name="manaMax" format="integer" />
+        <attr name="manaCurrent" format="integer" />
+    </declare-styleable>
+
+    <!-- FactionBadgeView attributes -->
+    <declare-styleable name="FactionBadgeView">
+        <attr name="factionCount" format="integer" />
+        <attr name="factionName" format="string" />
+        <attr name="factionColor" format="color" />
+    </declare-styleable>
+</resources>

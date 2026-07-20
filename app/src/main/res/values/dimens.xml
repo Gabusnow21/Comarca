@@ -31,12 +31,41 @@
     <dimen name="text_label_sm">12sp</dimen>
 
     <!-- Combat screen -->
-    <dimen name="enemy_area_height">0dp</dimen>
-    <dimen name="hand_area_height">0dp</dimen>
-    <dimen name="card_width">100dp</dimen>
-    <dimen name="card_height">150dp</dimen>
-    <dimen name="mana_gem_size">24dp</dimen>
-    <dimen name="hp_bar_height">16dp</dimen>
+    <dimen name="enemy_avatar_size">96dp</dimen>
+    <dimen name="enemy_health_bar_width">192dp</dimen>
+    <dimen name="enemy_health_bar_height">24dp</dimen>
+    <dimen name="enemy_intent_size">40dp</dimen>
+    <dimen name="slot_width">80dp</dimen>
+    <dimen name="slot_height">112dp</dimen>
+    <dimen name="hand_card_width">112dp</dimen>
+    <dimen name="hand_card_height">160dp</dimen>
+    <dimen name="hand_card_overlap">32dp</dimen>
+    <dimen name="mana_gem_size">16dp</dimen>
+    <dimen name="mana_gem_glow">8dp</dimen>
+    <dimen name="hp_bar_height">24dp</dimen>
+    <dimen name="combat_end_button_padding_h">24dp</dimen>
+    <dimen name="combat_end_button_padding_v">12dp</dimen>
+    <dimen name="combat_end_button_shadow">6dp</dimen>
+    <dimen name="card_mana_badge_size">32dp</dimen>
+    <dimen name="card_stat_icon_size">14dp</dimen>
+    <dimen name="card_stat_badge_padding_h">6dp</dimen>
+    <dimen name="card_stat_badge_padding_v">2dp</dimen>
+
+    <!-- Deck screen -->
+    <dimen name="deck_thumbnail_size">64dp</dimen>
+    <dimen name="deck_list_max_height">530dp</dimen>
+    <dimen name="deck_faction_badge_padding_h">16dp</dimen>
+    <dimen name="deck_faction_badge_padding_v">4dp</dimen>
+    <dimen name="deck_faction_dot_size">12dp</dimen>
+    <dimen name="deck_item_padding">12dp</dimen>
+    <dimen name="deck_edit_button_padding_h">32dp</dimen>
+    <dimen name="deck_edit_button_padding_v">12dp</dimen>
+
+    <!-- Map screen -->
+    <dimen name="map_node_size">48dp</dimen>
+    <dimen name="map_node_current_size">56dp</dimen>
+    <dimen name="map_node_boss_size">64dp</dimen>
+    <dimen name="map_parchment_height">600dp</dimen>
 
     <!-- Elevation levels -->
     <dimen name="elevation_background">0dp</dimen>

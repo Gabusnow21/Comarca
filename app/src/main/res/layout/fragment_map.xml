@@ -1,21 +1,191 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/surface"
-    android:orientation="vertical"
     tools:context=".ui.map.MapFragment">
 
-    <!-- Placeholder: Conquest map will be built in Phase 3 -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <!-- Map Parchment Container -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/map_parchment_height"
         android:layout_gravity="center"
-        android:layout_marginTop="128dp"
-        android:fontFamily="@font/domine_bold"
-        android:text="Mapa de Conquista"
-        android:textColor="@color/on_surface"
-        android:textSize="@dimen/text_headline_md" />
+        android:layout_margin="@dimen/spacing_lg"
+        android:background="@drawable/bg_parchment"
+        android:elevation="@dimen/elevation_active"
+        android:clipChildren="false"
+        android:clipToPadding="false">
 
-</LinearLayout>
+        <!-- SVG-style path will be drawn via a custom view or overlay -->
+        <View
+            android:id="@+id/map_path_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- Node: Start / Completed -->
+        <LinearLayout
+            android:id="@+id/node_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|start"
+            android:layout_marginStart="40dp"
+            android:layout_marginBottom="60dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:alpha="0.7">
+
+            <FrameLayout
+                android:layout_width="@dimen/map_node_size"
+                android:layout_height="@dimen/map_node_size"
+                android:background="@drawable/bg_node_completed">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/spacing_sm"
+                    android:src="@android:drawable/ic_menu_manage"
+                    android:alpha="0.5"
+                    app:tint="@color/outline" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <!-- Node: Current Position (Glowing) -->
+        <LinearLayout
+            android:id="@+id/node_current"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|start"
+            android:layout_marginStart="80dp"
+            android:layout_marginBottom="40dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:elevation="@dimen/elevation_active">
+
+            <FrameLayout
+                android:layout_width="@dimen/map_node_current_size"
+                android:layout_height="@dimen/map_node_current_size"
+                android:background="@drawable/bg_node_current"
+                android:elevation="12dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/spacing_sm"
+                    android:src="@android:drawable/ic_menu_manage"
+                    app:tint="@color/on_primary_container" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <!-- Node: Loot (Next) -->
+        <LinearLayout
+            android:id="@+id/node_loot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="40dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:alpha="0.8">
+
+            <FrameLayout
+                android:layout_width="@dimen/map_node_size"
+                android:layout_height="@dimen/map_node_size"
+                android:background="@drawable/bg_node_combat">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/spacing_sm"
+                    android:src="@android:drawable/ic_menu_agenda"
+                    app:tint="@color/on_surface_variant" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xs"
+                android:text="@string/map_node_tesoro"
+                android:textColor="@color/on_surface_variant"
+                android:textSize="@dimen/text_label_sm"
+                android:fontFamily="@font/space_grotesk"
+                android:alpha="0.8" />
+        </LinearLayout>
+
+        <!-- Node: Rest -->
+        <LinearLayout
+            android:id="@+id/node_rest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|end"
+            android:layout_marginEnd="50dp"
+            android:layout_marginTop="180dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:alpha="0.6">
+
+            <FrameLayout
+                android:layout_width="@dimen/map_node_size"
+                android:layout_height="@dimen/map_node_size"
+                android:background="@drawable/bg_node_combat">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/spacing_sm"
+                    android:src="@android:drawable/ic_menu_mapmode"
+                    app:tint="@color/on_surface_variant" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xs"
+                android:text="@string/map_node_descanso"
+                android:textColor="@color/on_surface_variant"
+                android:textSize="@dimen/text_label_sm"
+                android:fontFamily="@font/space_grotesk"
+                android:alpha="0.6" />
+        </LinearLayout>
+
+        <!-- Node: Boss -->
+        <LinearLayout
+            android:id="@+id/node_boss"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|end"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="50dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:alpha="0.6">
+
+            <FrameLayout
+                android:layout_width="@dimen/map_node_boss_size"
+                android:layout_height="@dimen/map_node_boss_size"
+                android:background="@drawable/bg_node_boss">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="&#9760;"
+                    android:textColor="@color/on_error_container"
+                    android:textSize="28sp" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xs"
+                android:text="@string/map_node_boss"
+                android:textColor="@color/error"
+                android:textSize="@dimen/text_label_lg"
+                android:fontFamily="@font/space_grotesk"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </FrameLayout>
+
+</FrameLayout>

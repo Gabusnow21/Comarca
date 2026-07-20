@@ -89,6 +89,55 @@
         <item name="android:textColor">@color/on_surface_variant</item>
     </style>
 
+    <!-- Combat End Turn Button -->
+    <style name="Widget.Comarca.Button.EndTurn" parent="Widget.Material3.Button">
+        <item name="background">@drawable/bg_bronze_button</item>
+        <item name="android:textColor">@color/on_primary_container</item>
+        <item name="android:fontFamily">@font/domine_bold</item>
+        <item name="android:textSize">@dimen/text_headline_sm</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:paddingLeft">@dimen/combat_end_button_padding_h</item>
+        <item name="android:paddingRight">@dimen/combat_end_button_padding_h</item>
+        <item name="android:paddingTop">@dimen/combat_end_button_padding_v</item>
+        <item name="android:paddingBottom">@dimen/combat_end_button_padding_v</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
+    <!-- Combat Action Message -->
+    <style name="TextAppearance.Comarca.CombatMessage" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:fontFamily">@font/work_sans</item>
+        <item name="android:textColor">@color/primary</item>
+        <item name="android:textSize">@dimen/text_body_md</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+
+    <!-- Deck Title on Parchment -->
+    <style name="TextAppearance.Comarca.DeckTitle" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:fontFamily">@font/domine_bold</item>
+        <item name="android:textColor">#4a3520</item>
+        <item name="android:textSize">@dimen/text_headline_md</item>
+    </style>
+
+    <!-- Deck Item Card Name -->
+    <style name="TextAppearance.Comarca.DeckCardName" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:fontFamily">@font/domine_bold</item>
+        <item name="android:textColor">#4a3520</item>
+        <item name="android:textSize">@dimen/text_headline_sm</item>
+    </style>
+
+    <!-- Deck Item Card Subtitle -->
+    <style name="TextAppearance.Comarca.DeckCardSubtitle" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:fontFamily">@font/space_grotesk</item>
+        <item name="android:textColor">#6b5a40</item>
+        <item name="android:textSize">@dimen/text_label_sm</item>
+    </style>
+
+    <!-- Deck Faction Stats -->
+    <style name="TextAppearance.Comarca.DeckStat" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:fontFamily">@font/space_grotesk</item>
+        <item name="android:textSize">@dimen/text_label_lg</item>
+    </style>
+
     <!-- Shape Styles -->
     <style name="Shape.Comarca.Small" parent="ShapeAppearance.Material3.SmallComponent">
         <item name="cornerFamily">rounded</item>
