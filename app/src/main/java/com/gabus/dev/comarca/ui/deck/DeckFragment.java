@@ -9,8 +9,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.gabus.dev.comarca.R;
 import com.gabus.dev.comarca.databinding.FragmentDeckBinding;
 import com.gabus.dev.comarca.domain.model.Card;
 
@@ -40,6 +42,7 @@ public class DeckFragment extends Fragment {
         viewModel = new ViewModelProvider(this).get(DeckViewModel.class);
 
         setupRecyclerView();
+        setupEditButton();
         loadDemoDeck();
     }
 
@@ -47,6 +50,12 @@ public class DeckFragment extends Fragment {
         deckAdapter = new DeckAdapter();
         binding.rvCardList.setLayoutManager(new LinearLayoutManager(requireContext()));
         binding.rvCardList.setAdapter(deckAdapter);
+    }
+
+    private void setupEditButton() {
+        binding.btnEditDeck.setOnClickListener(v -> {
+            Navigation.findNavController(v).navigate(R.id.action_deck_to_deckBuilder);
+        });
     }
 
     private void loadDemoDeck() {
