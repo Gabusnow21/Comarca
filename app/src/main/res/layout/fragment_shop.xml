@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/surface"
+    android:orientation="vertical"
+    android:padding="@dimen/spacing_lg"
+    tools:context=".ui.shop.ShopFragment">
+
+    <!-- Parchment container -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/bg_parchment"
+        android:elevation="@dimen/elevation_active"
+        android:orientation="vertical"
+        android:padding="@dimen/spacing_xl">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/domine_bold"
+            android:text="@string/shop_title"
+            android:textColor="#4a3520"
+            android:textSize="@dimen/text_headline_lg" />
+
+        <!-- Gold display -->
+        <TextView
+            android:id="@+id/tv_shop_gold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_md"
+            android:fontFamily="@font/space_grotesk"
+            android:textColor="@color/primary"
+            android:textSize="@dimen/text_body_lg"
+            tools:text="Oro: 50" />
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/spacing_lg"
+            android:layout_marginBottom="@dimen/spacing_lg"
+            android:background="@color/outline_variant" />
+
+        <!-- Card list -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_shop_cards"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:paddingBottom="@dimen/spacing_lg" />
+
+        <!-- Continue button -->
+        <Button
+            android:id="@+id/btn_shop_continue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/spacing_lg"
+            android:fontFamily="@font/space_grotesk"
+            android:text="@string/reward_continue"
+            style="@style/Widget.Comarca.Button.EndTurn" />
+
+    </LinearLayout>
+
+</LinearLayout>
