@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.gabus.dev.comarca.ui.components.CardViewCustom xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_choice"
+    android:layout_width="@dimen/hand_card_width"
+    android:layout_height="@dimen/hand_card_height"
+    android:layout_margin="@dimen/spacing_sm"
+    android:background="@drawable/bg_card_item_parchment"
+    android:elevation="@dimen/elevation_interactive"
+    android:padding="@dimen/spacing_sm"
+    app:cardFactionId="0"
+    app:cardManaCost="0"
+    app:cardAttack="0"
+    app:cardDefense="0"
+    app:cardName="" />
