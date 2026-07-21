@@ -39,4 +39,28 @@
     <string name="faction_dwarf">Enanos</string>
     <string name="faction_ogre">Ogros</string>
     <string name="faction_elf">Elfos</string>
+
+    <!-- Reward -->
+    <string name="reward_gold_earned">Oro ganado:</string>
+    <string name="reward_choose_card">Elige una carta</string>
+    <string name="reward_continue">Continuar</string>
+    <string name="reward_card_selected">Carta añadida a tu mazo</string>
+
+    <!-- Shop -->
+    <string name="shop_title">Tienda de Mejoras</string>
+    <string name="shop_gold">Oro: %1$d</string>
+    <string name="shop_upgrade_attack">+2 Ataque</string>
+    <string name="shop_upgrade_defense">+2 Defensa</string>
+    <string name="shop_reduce_mana">-1 Maná</string>
+    <string name="shop_cost">Coste: %1$d</string>
+    <string name="shop_max_level">Máximo</string>
+    <string name="shop_insufficient_gold">Oro insuficiente</string>
+
+    <!-- Deck Builder -->
+    <string name="deck_builder_title">Constructor de Mazo</string>
+    <string name="deck_builder_current">Mazo Actual</string>
+    <string name="deck_builder_available">Cartas Disponibles</string>
+    <string name="deck_builder_add">Añadir</string>
+    <string name="deck_builder_remove">Quitar</string>
+    <string name="deck_builder_full">Mazo lleno (máx. 8)</string>
 </resources>
