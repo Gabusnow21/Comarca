@@ -39,6 +39,15 @@ public class MainActivity extends AppCompatActivity {
             ).build();
 
             NavigationUI.setupWithNavController(binding.topAppBar, navController, appBarConfig);
+            NavigationUI.setupWithNavController(binding.bottomNavigation, navController);
+
+            navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
+                if (destination.getId() == R.id.rewardFragment) {
+                    binding.bottomNavigation.setVisibility(android.view.View.GONE);
+                } else {
+                    binding.bottomNavigation.setVisibility(android.view.View.VISIBLE);
+                }
+            });
         }
     }
 
