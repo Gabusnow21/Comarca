@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_card_item_parchment"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="@dimen/spacing_md"
+    android:layout_marginBottom="@dimen/spacing_sm">
+
+    <!-- Card info -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_shop_card_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/domine_bold"
+            android:textColor="#4a3520"
+            android:textSize="@dimen/text_body_md"
+            tools:text="Strike" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xs"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_shop_card_attack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/space_grotesk"
+                android:textColor="#6b5a40"
+                android:textSize="@dimen/text_label_sm"
+                tools:text="ATK: 3" />
+
+            <TextView
+                android:id="@+id/tv_shop_card_defense"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_md"
+                android:fontFamily="@font/space_grotesk"
+                android:textColor="#6b5a40"
+                android:textSize="@dimen/text_label_sm"
+                tools:text="DEF: 2" />
+
+            <TextView
+                android:id="@+id/tv_shop_card_mana"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_md"
+                android:fontFamily="@font/space_grotesk"
+                android:textColor="#6b5a40"
+                android:textSize="@dimen/text_label_sm"
+                tools:text="MANA: 1" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Upgrade buttons -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <!-- Attack upgrade -->
+        <LinearLayout
+            android:id="@+id/btn_upgrade_attack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_bronze_button"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_sm">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/space_grotesk"
+                android:text="@string/shop_upgrade_attack"
+                android:textColor="@color/on_primary_container"
+                android:textSize="@dimen/text_label_sm" />
+
+            <TextView
+                android:id="@+id/tv_attack_cost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/space_grotesk"
+                android:textColor="@color/on_primary_container"
+                android:textSize="@dimen/text_label_sm"
+                tools:text="Coste: 15" />
+        </LinearLayout>
+
+        <!-- Defense upgrade -->
+        <LinearLayout
+            android:id="@+id/btn_upgrade_defense"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xs"
+            android:background="@drawable/bg_bronze_button"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_sm">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/space_grotesk"
+                android:text="@string/shop_upgrade_defense"
+                android:textColor="@color/on_primary_container"
+                android:textSize="@dimen/text_label_sm" />
+
+            <TextView
+                android:id="@+id/tv_defense_cost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/space_grotesk"
+                android:textColor="@color/on_primary_container"
+                android:textSize="@dimen/text_label_sm"
+                tools:text="Coste: 15" />
+        </LinearLayout>
+
+        <!-- Mana reduction -->
+        <LinearLayout
+            android:id="@+id/btn_reduce_mana"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xs"
+            android:background="@drawable/bg_bronze_button"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_sm">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/space_grotesk"
+                android:text="@string/shop_reduce_mana"
+                android:textColor="@color/on_primary_container"
+                android:textSize="@dimen/text_label_sm" />
+
+            <TextView
+                android:id="@+id/tv_mana_cost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/space_grotesk"
+                android:textColor="@color/on_primary_container"
+                android:textSize="@dimen/text_label_sm"
+                tools:text="Coste: 15" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -2,6 +2,7 @@ package com.gabus.dev.comarca.ui.combat;
 
 import androidx.lifecycle.ViewModel;
 
+import com.gabus.dev.comarca.data.repository.RunManager;
 import com.gabus.dev.comarca.domain.model.CombatAction;
 import com.gabus.dev.comarca.domain.model.CombatEffect;
 import com.gabus.dev.comarca.domain.model.CombatState;
@@ -25,14 +26,16 @@ public class CombatViewModel extends ViewModel {
 
     private final CombatUseCase combatUseCase;
     private final EnemyAI enemyAI;
+    private final RunManager runManager;
 
     private final MutableStateFlow<CombatState> _combatState;
     public final StateFlow<CombatState> combatState;
 
     @Inject
-    public CombatViewModel(CombatUseCase combatUseCase, EnemyAI enemyAI) {
+    public CombatViewModel(CombatUseCase combatUseCase, EnemyAI enemyAI, RunManager runManager) {
         this.combatUseCase = combatUseCase;
         this.enemyAI = enemyAI;
+        this.runManager = runManager;
         this._combatState = StateFlowKt.MutableStateFlow(null);
         this.combatState = _combatState;
     }
@@ -94,5 +97,16 @@ public class CombatViewModel extends ViewModel {
                     break;
             }
         }
+    }
+
+    public void saveCombatState() {
+        CombatState state = _combatState.getValue();
+        if (state == null) return;
+
+        runManager.saveRun(state.getPlayer(), 1, 0);
+    }
+
+    public RunManager getRunManager() {
+        return runManager;
     }
 }

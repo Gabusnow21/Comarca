@@ -1,21 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/surface"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
+    android:padding="@dimen/spacing_lg"
     tools:context=".ui.reward.RewardFragment">
 
-    <!-- Placeholder: Reward screen will be built in Phase 4 -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="128dp"
-        android:fontFamily="@font/domine_bold"
-        android:text="Recompensa"
-        android:textColor="@color/on_surface"
-        android:textSize="@dimen/text_headline_md" />
+    <!-- Parchment container -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/bg_parchment"
+        android:elevation="@dimen/elevation_active"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="@dimen/spacing_xl">
+
+        <!-- Victory/Defeat title -->
+        <TextView
+            android:id="@+id/tv_reward_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/domine_bold"
+            android:text="@string/combat_victory"
+            android:textColor="@color/on_surface"
+            android:textSize="@dimen/text_headline_lg"
+            android:textStyle="bold" />
+
+        <!-- Gold earned -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_lg"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/space_grotesk"
+                android:text="@string/reward_gold_earned"
+                android:textColor="#4a3520"
+                android:textSize="@dimen/text_body_lg" />
+
+            <TextView
+                android:id="@+id/tv_gold_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_sm"
+                android:fontFamily="@font/domine_bold"
+                android:textColor="@color/primary"
+                android:textSize="@dimen/text_headline_md"
+                android:textStyle="bold"
+                tools:text="25" />
+        </LinearLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/spacing_lg"
+            android:layout_marginBottom="@dimen/spacing_lg"
+            android:background="@color/outline_variant" />
+
+        <!-- Loot section title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/domine_bold"
+            android:text="@string/reward_choose_card"
+            android:textColor="#4a3520"
+            android:textSize="@dimen/text_headline_sm" />
+
+        <!-- Card choices -->
+        <LinearLayout
+            android:id="@+id/card_choices_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_lg"
+            android:gravity="center"
+            android:orientation="horizontal" />
+
+        <!-- Continue button -->
+        <Button
+            android:id="@+id/btn_continue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xl"
+            android:fontFamily="@font/space_grotesk"
+            android:text="@string/reward_continue"
+            style="@style/Widget.Comarca.Button.EndTurn" />
+
+    </LinearLayout>
 
 </LinearLayout>

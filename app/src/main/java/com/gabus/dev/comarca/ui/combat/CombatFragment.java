@@ -39,6 +39,7 @@ public class CombatFragment extends Fragment {
     private FragmentCombatBinding binding;
     private CombatViewModel viewModel;
     private HandAdapter handAdapter;
+    private volatile boolean isObserving = true;
 
     @Nullable
     @Override
@@ -92,13 +93,13 @@ public class CombatFragment extends Fragment {
     private void observeCombatState() {
         // Observe via lifecycle
         new Thread(() -> {
-            while (true) {
+            while (isObserving) {
                 try {
                     Thread.sleep(100);
                 } catch (InterruptedException e) {
                     break;
                 }
-                if (viewModel.combatState.getValue() != null) {
+                if (viewModel.combatState.getValue() != null && binding != null) {
                     requireActivity().runOnUiThread(() -> updateUI(viewModel.combatState.getValue()));
                 }
             }
@@ -106,8 +107,8 @@ public class CombatFragment extends Fragment {
     }
 
     private void updateUI(CombatState state) {
-        if (state == null || state.isGameOver()) {
-            if (state != null) {
+        if (state == null || state.isGameOver() || binding == null) {
+            if (state != null && binding != null) {
                 showGameOver(state);
             }
             return;
@@ -210,6 +211,7 @@ public class CombatFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        isObserving = false;
         binding = null;
     }
 }

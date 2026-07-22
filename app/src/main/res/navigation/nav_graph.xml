@@ -22,7 +22,12 @@
         android:id="@+id/deckFragment"
         android:name="com.gabus.dev.comarca.ui.deck.DeckFragment"
         android:label="Mazo"
-        tools:layout="@layout/fragment_deck" />
+        tools:layout="@layout/fragment_deck">
+
+        <action
+            android:id="@+id/action_deck_to_deckBuilder"
+            app:destination="@id/deckBuilderFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/mapFragment"
@@ -41,6 +46,29 @@
             app:destination="@id/combatFragment"
             app:popUpTo="@id/rewardFragment"
             app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_reward_to_shop"
+            app:destination="@id/shopFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/shopFragment"
+        android:name="com.gabus.dev.comarca.ui.shop.ShopFragment"
+        android:label="Tienda"
+        tools:layout="@layout/fragment_shop">
+
+        <action
+            android:id="@+id/action_shop_to_combat"
+            app:destination="@id/combatFragment"
+            app:popUpTo="@id/combatFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/deckBuilderFragment"
+        android:name="com.gabus.dev.comarca.ui.deck.DeckBuilderFragment"
+        android:label="Constructor de Mazo"
+        tools:layout="@layout/fragment_deck_builder" />
 
 </navigation>
